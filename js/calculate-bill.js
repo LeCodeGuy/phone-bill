@@ -1,5 +1,5 @@
 //get a reference to the calculate button
-const calculateBtnElement = document.querySelector(".calculateBtn");
+const calculateBtn = document.querySelector(".calculateBtn");
 
 //get a reference to the billTotal element
 const billTotalElement = document.querySelector(".billTotal");
@@ -15,6 +15,7 @@ const billStringElement = document.querySelector(".billString");
 function calculateBtnClicked(){
     // get the string entered in the textArea
     var billString = billStringElement.value;
+    
     //split the string
     var billItems = billString.split(",");
     // a variable for the total phone bill.
@@ -36,4 +37,4 @@ function calculateBtnClicked(){
 }
 
 //link the function to a click event on the calculate button
-calculateBtn.addEventListener('click', calculateBtnClicked());
+calculateBtn.addEventListener('click', calculateBtnClicked);
