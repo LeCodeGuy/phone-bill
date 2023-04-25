@@ -20,3 +20,9 @@
   font-weight: bold;
   font-size: 2em;
 }
+.disableBtn {
+  background-color: lightgrey !important;
+  color:black !important;
+  border-color: lightgrey !important;
+  cursor: default !important;
+}
