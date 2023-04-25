@@ -21,7 +21,7 @@ addToBillBtnElem.addEventListener('click', textBillTotal);
 // * display the latest total on the screen
 function textBillTotal(){
     // get the value entered in the billType textfield
-    var billTypeEntered = billTypeTextElem.value.trim();
+    var billTypeEntered = billTypeTextElem.value.trim().toLowerCase();
     
     // update the correct total
     if (billTypeEntered === "call"){

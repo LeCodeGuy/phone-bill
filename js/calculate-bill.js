@@ -22,7 +22,7 @@ function calculateBtnClicked(){
     var billTotal = 0;
     //loop over all the bill items
     for (var i=0;i<billItems.length;i++){
-        var billItem = billItems[i].trim();
+        var billItem = billItems[i].trim().toLowerCase();
         if (billItem === "call"){
             billTotal += 2.75;
         }
@@ -34,6 +34,27 @@ function calculateBtnClicked(){
     //round to two decimals
     var roundedBillTotal = billTotal.toFixed(2);
     billTotalElement.innerHTML = roundedBillTotal;
+
+    //color the total based on the criteria
+    if (roundedBillTotal >= 30){
+        // removes the warning class before adding danger class
+        // * this is being done as forward planning for when we decide we want to remove a bill record again
+        billTotalElement.classList.remove("warning");
+
+        // adding the danger class will make the text red
+        billTotalElement.classList.add("danger");
+    }
+    else if (roundedBillTotal >= 20){
+        // removes the danger class before adding warning class
+        // this is to cater for changes that might be made to the billing string between button clicks.
+        billTotalElement.classList.remove("danger");
+        // adding the warning class will make the text orange
+        billTotalElement.classList.add("warning");
+    }
+    else{
+        billTotalElement.classList.remove("warning");
+        billTotalElement.classList.remove("danger");
+    }
 }
 
 //link the function to a click event on the calculate button
