@@ -9,7 +9,7 @@ const radioBillAddBtnElem = document.querySelector(".radioBillAddBtn");
 
 //create a variable that will keep track of the total bill
 var callsTotalRadio = 0;
-var smsTotal = 0;
+var smsTotalRadio = 0;
 //add an event listener for when the add button is pressed
 radioBillAddBtnElem.addEventListener('click', radioBillTotal);
 
