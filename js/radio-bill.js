@@ -8,7 +8,7 @@ const totalTwoElem = document.querySelector(".totalTwo");
 const radioBillAddBtnElem = document.querySelector(".radioBillAddBtn");
 
 //create a variable that will keep track of the total bill
-var callsTotal = 0;
+var callsTotalRadio = 0;
 var smsTotal = 0;
 //add an event listener for when the add button is pressed
 radioBillAddBtnElem.addEventListener('click', radioBillTotal);
@@ -26,21 +26,21 @@ function radioBillTotal(){
         var billItem = checkedRadioBtn.value
         // billItemType will be 'call' or 'sms'
         if (billItem === "call"){
-            callsTotal += 2.75
+            callsTotalRadio += 2.75
         }
         else if (billItem === "sms"){
-            smsTotal += 0.75;
+            smsTotalRadio += 0.75;
         }
         
         //update the totals that is displayed on the screen.
-        callTotalTwoElem.innerHTML = callsTotal.toFixed(2);
-        smsTotalTwoElem.innerHTML = smsTotal.toFixed(2);
+        callTotalTwoElem.innerHTML = callsTotalRadio.toFixed(2);
+        smsTotalTwoElem.innerHTML = smsTotalRadio.toFixed(2);
         
-        var totalCost = callsTotal + smsTotal;
-        totalTwoElem.innerHTML = totalCost.toFixed(2);
+        var totalCostRadio = callsTotalRadio + smsTotalRadio;
+        totalTwoElem.innerHTML = totalCostRadio.toFixed(2);
         
         //color the total based on the criteria
-        if (totalCost >= 50){
+        if (totalCostRadio >= 50){
             // removes the warning class before adding danger class
             // * this is being done as forward planning for when we decide we want to remove a bill record again
             totalTwoElem.classList.remove("warning");
@@ -48,7 +48,7 @@ function radioBillTotal(){
             // adding the danger class will make the text red
             totalTwoElem.classList.add("danger");
         }
-        else if (totalCost >= 30){
+        else if (totalCostRadio >= 30){
             // adding the warning class will make the text orange
             totalTwoElem.classList.add("warning");
         }
