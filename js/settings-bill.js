@@ -24,9 +24,9 @@ const callTotalSettingsElem = document.querySelector(".callTotalSettings");
 const smsTotalSettingsElem = document.querySelector(".smsTotalSettings");
 const totalSettingsElem = document.querySelector(".totalSettings");
 
-var callsTotal = 0;
-var smsTotal = 0;
-var overallTotal = 0;
+var callsTotalSettings = 0;
+var smsTotalSettings = 0;
+var overallTotalSettings = 0;
 //add an event listener for when the 'Update settings' button is pressed
 settingsBillUpdateBtnElem.addEventListener('click', updateBillSettings);
 
@@ -57,18 +57,18 @@ function billWithSettingsTotal(){
         var billItem = checkedRadioBtn.value
         // billItemType will be 'call' or 'sms'
         if (billItem === "call"){
-            callsTotal += parseFloat(callCostSettingVal);//converts the string value to a numeric value before adding
+            callsTotalSettings += parseFloat(callCostSettingVal);//converts the string value to a numeric value before adding
         }
         else if (billItem === "sms"){
-            smsTotal += parseFloat(smsCostSettingVal);//converts the string value to a numeric value before adding
+            smsTotalSettings += parseFloat(smsCostSettingVal);//converts the string value to a numeric value before adding
         }
         
         //update the totals that is displayed on the screen.
-        callTotalSettingsElem.innerHTML = callsTotal.toFixed(2);
-        smsTotalSettingsElem.innerHTML = smsTotal.toFixed(2);
+        callTotalSettingsElem.innerHTML = callsTotalSettings.toFixed(2);
+        smsTotalSettingsElem.innerHTML = smsTotalSettings.toFixed(2);
         
-        overallTotal = callsTotal + smsTotal;
-        totalSettingsElem.innerHTML = overallTotal.toFixed(2);
+        overallTotalSettings = callsTotalSettings + smsTotalSettings;
+        totalSettingsElem.innerHTML = overallTotalSettings.toFixed(2);
 
         setTotalColor();
     } 
@@ -79,7 +79,7 @@ function setTotalColor (){
     if(criticalLevelSettingVal === 0 || warningLevelSettingVal === 0){
         alert("Please update the settings before trying to add to the bill");
     }
-    else if (overallTotal >= criticalLevelSettingVal){
+    else if (overallTotalSettings >= criticalLevelSettingVal){
         // removes the warning class before adding danger class
         totalSettingsElem.classList.remove("danger");
         totalSettingsElem.classList.remove("warning");
@@ -93,7 +93,7 @@ function setTotalColor (){
         // greys out the button
         settingsBillAddBtnElem.classList.add("disableBtn");
     }
-    else if (overallTotal >= warningLevelSettingVal){
+    else if (overallTotalSettings >= warningLevelSettingVal){
         // removes the danger and warning classes before adding warning class
         totalSettingsElem.classList.remove("danger");
         totalSettingsElem.classList.remove("warning");
