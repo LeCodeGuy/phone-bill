@@ -92,7 +92,15 @@ function billWithSettingsTotal() {
     totalSettingsElem.innerHTML = settingsFactory.getTotalCost().toFixed(2); //overallTotalSettings.toFixed(2);
 
     //setTotalColor();
-    settingsFactory.totalClassName();
+    totalSettingsElem.classList.remove("danger");
+    totalSettingsElem.classList.remove("warning");
+    
+    if(settingsFactory.totalClassName()==="critical"){
+      totalSettingsElem.classList.add("danger");
+    }
+    else if(settingsFactory.totalClassName()==="warning"){
+      totalSettingsElem.classList.add("warning");
+    }    
   }
 }
 

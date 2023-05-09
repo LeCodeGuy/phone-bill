@@ -67,16 +67,10 @@ function billWithSettings() {
     return getTotalCost() >= getCriticalLevel();
   }
   function totalClassName() {
-    totalSettingsElem.classList.remove("danger");
-    totalSettingsElem.classList.remove("warning");
-    
     if(hasReachedCriticalLevel()){
-      totalSettingsElem.classList.add("danger");
       return "critical";
-
     }
-    else if(getTotalCost() >= getWarningLevel()){
-      totalSettingsElem.classList.add("warning");
+    else if(getTotalCost() >= getWarningLevel()){      
       return "warning";
     }
   }
