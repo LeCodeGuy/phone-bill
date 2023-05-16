@@ -152,7 +152,7 @@ describe("Warning and Critical Levels", function() {
         assert.equal("warning",settingsBill.totalClassName());
     })
 
-    it("should return a class name of 'critical' if critical level is reached",function() {
+    it("should return a class name of 'danger' if danger level is reached",function() {
         let settingsBill = billWithSettings();
 
         settingsBill.setCallCost(2.50);
@@ -165,11 +165,11 @@ describe("Warning and Critical Levels", function() {
         settingsBill.makeCall();
         settingsBill.makeCall();  
 
-        assert.equal("critical",settingsBill.totalClassName());
+        assert.equal("danger",settingsBill.totalClassName());
         assert.equal(10,settingsBill.getTotalCallCost());
     })
 
-    it("should allow the total to increase after reaching the critical level and then upping the critical level",function() {
+    it("should allow the total to increase after reaching the danger level and then upping the danger level",function() {
         let settingsBill = billWithSettings();
 
         settingsBill.setCallCost(2.50);
@@ -183,7 +183,7 @@ describe("Warning and Critical Levels", function() {
         settingsBill.makeCall(); 
         settingsBill.makeCall();  
 
-        assert.equal("critical",settingsBill.totalClassName());
+        assert.equal("danger",settingsBill.totalClassName());
         assert.equal(10,settingsBill.getTotalCallCost());
 
         settingsBill.setWarningLevel(8);
@@ -197,7 +197,7 @@ describe("Warning and Critical Levels", function() {
         settingsBill.makeCall(); 
         settingsBill.makeCall();
 
-        assert.equal("critical",settingsBill.totalClassName());
+        assert.equal("danger",settingsBill.totalClassName());
         assert.equal(20,settingsBill.getTotalCallCost());
     })  
 })
